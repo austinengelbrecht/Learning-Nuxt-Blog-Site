@@ -4,7 +4,7 @@
       <h1>Get the latest news!</h1>
     </section>
 
-    <PostList />
+    <PostList :posts="loadedPosts" />
   </div>
 </template>
 
@@ -13,9 +13,16 @@ import PostList from "@/components/Posts/PostList.vue";
 
 export default {
   components: {
-
     PostList
-}
+  }, 
+  data() {
+    return {
+      loadedPosts: [
+        { id: '1', title: 'First Post', previewText: 'First Post', thumbnail: 'https://picsum.photos/200/300' },
+        { id: '2', title: 'Second Post', previewText: 'Second Post', thumbnail: 'https://picsum.photos/200/300' },
+      ]
+    }
+  }
 }
 </script>
 

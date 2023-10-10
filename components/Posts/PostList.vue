@@ -1,8 +1,13 @@
 <template>
   <section class="featured-posts">
-      <PostPreview id="1" :is-admin="isAdmin" thumbnail="https://www.afterschoolafrica.com/wp-content/uploads/2020/03/Technology-industry-720x430-1.jpg" title="Hello There" previewText="My first post"/>
-      <PostPreview id="2" :is-admin="isAdmin" thumbnail="https://www.afterschoolafrica.com/wp-content/uploads/2020/03/Technology-industry-720x430-1.jpg" title="Hello There" previewText="My first post"/>
-      <PostPreview id="3" :is-admin="isAdmin" thumbnail="https://www.afterschoolafrica.com/wp-content/uploads/2020/03/Technology-industry-720x430-1.jpg" title="Hello There" previewText="My first post"/>
+      <PostPreview 
+        v-for="post in posts"
+        :key="post.id"
+        :id="post.id" 
+        :is-admin="isAdmin" 
+        :thumbnail="post.thumbnail"  
+        :title="post.title" 
+        :previewText="post.previewText"/>
     </section>
 </template>
 
@@ -15,6 +20,10 @@ export default {
     isAdmin: {
       type: Boolean,
       required: false
+    }, 
+    posts: {
+      type: Array, 
+      required: true
     }
   }
 }
