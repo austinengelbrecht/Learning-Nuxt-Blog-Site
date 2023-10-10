@@ -15,13 +15,27 @@ export default {
   components: {
     PostList
   }, 
-  data() {
-    return {
-      loadedPosts: [
-        { id: '1', title: 'First Post', previewText: 'First Post', thumbnail: 'https://picsum.photos/200/300' },
-        { id: '2', title: 'Second Post', previewText: 'Second Post', thumbnail: 'https://picsum.photos/200/300' },
-      ]
-    }
+  // data() {
+  //   return {
+  //     loadedPosts: [
+        
+  //     ]
+  //   }
+  // },
+  asyncData(context, callback){
+    
+    callback(null, 
+      { loadedPosts: 
+          [
+            { id: '1', title: 'First Post', previewText: 'First Post', thumbnail: 'https://picsum.photos/200/300' },
+            { id: '2', title: 'Second Post', previewText: 'Second Post', thumbnail: 'https://picsum.photos/200/300' },
+          ]
+      }) 
+    },
+    
+  
+  created() {
+    
   }
 }
 </script>
