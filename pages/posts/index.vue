@@ -12,16 +12,23 @@ export default {
   components: {
     PostList
   }, 
-  asyncData(context, callback){
-    
-    setTimeout(()=> {
-      callback(null, { loadedPosts: 
-        [
-          { id: '1', title: 'First Post', previewText: 'First Post', thumbnail: 'https://picsum.photos/200/300' },
-          { id: '2', title: 'Second Post', previewText: 'Second Post', thumbnail: 'https://picsum.photos/200/300' },
-        ]
+  asyncData(context){
+    return new Promise((resolve, reject) =>{
+      setTimeout(()=> {
+
+        resolve({ loadedPosts: 
+          [
+            { id: '1', title: 'First Post', previewText: 'First Post', thumbnail: 'https://picsum.photos/200/300' },
+            { id: '2', title: 'Second Post', previewText: 'Second Post', thumbnail: 'https://picsum.photos/200/300' },
+          ]
+        })
+      },1000) ;
+    }).then(data => {
+      return data
     })
-    },1000)
+    .catch((e)=>{
+      context.error(new Error())
+    })
     
   }
 }
