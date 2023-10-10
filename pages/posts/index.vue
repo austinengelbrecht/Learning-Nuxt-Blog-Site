@@ -15,7 +15,6 @@ export default {
   asyncData(context){
     return new Promise((resolve, reject) =>{
       setTimeout(()=> {
-
         resolve({ loadedPosts: 
           [
             { id: '1', title: 'First Post', previewText: 'First Post', thumbnail: 'https://picsum.photos/200/300' },
