@@ -14,14 +14,14 @@ export default {
   }, 
   asyncData(context, callback){
     
-      setTimeout(()=> {
-        callback(null, { loadedPosts: 
-          [
-            { id: '1', title: 'First Post', previewText: 'First Post', thumbnail: 'https://picsum.photos/200/300' },
-            { id: '2', title: 'Second Post', previewText: 'Second Post', thumbnail: 'https://picsum.photos/200/300' },
-          ]
-      })
-      },1000)
+    setTimeout(()=> {
+      callback(null, { loadedPosts: 
+        [
+          { id: '1', title: 'First Post', previewText: 'First Post', thumbnail: 'https://picsum.photos/200/300' },
+          { id: '2', title: 'Second Post', previewText: 'Second Post', thumbnail: 'https://picsum.photos/200/300' },
+        ]
+    })
+    },1000)
     
   }
 }

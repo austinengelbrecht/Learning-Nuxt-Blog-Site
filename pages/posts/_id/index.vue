@@ -1,14 +1,14 @@
 <template>
   <div class="single-post-page">
     <section class="post">
-      <h1 class="post-title">Title</h1>
+      <h1 class="post-title">{{ loadedPost.title }}</h1>
 
       <div class="post-details">
-          <div class="post-detail">Last Updated</div>
-          <div class="post-detail">Written by</div>
+          <div class="post-detail">{{ loadedPost.updated }}</div>
+          <div class="post-detail">Written by {{ loadedPost.author }}</div>
       </div>
 
-      <p class="post-content">Content</p>
+      <p class="post-content">{{ loadedPost.content }}</p>
     </section>
 
     <section class="post-feedback">
@@ -16,6 +16,19 @@
     </section>
   </div>
 </template>
+
+<script>
+export default {
+  asyncData(context, callback){
+    setTimeout(
+      () => {
+        callback(null, {
+          loadedPost:  { id: '1', title: 'First Post (ID: ' + context.params.id + ")", previewText: 'First Post', author: "Me", updated: new Date(), content: 'Some dummy text',  thumbnail: 'https://picsum.photos/200/300' }
+        })
+      }, 1000)
+  }
+}
+</script>
 
 <style scoped>
 .single-post-page {
